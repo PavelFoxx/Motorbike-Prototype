@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3551896907089143275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3551896907089143273}
+  - component: {fileID: 3551896907089143274}
+  m_Layer: 0
+  m_Name: GameSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3551896907089143273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551896907089143275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 965.3288, y: 484.58572, z: 3.9983382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3551896907089143274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551896907089143275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645d6a4d661b14420935ed4e8f4bc476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: Menu
+  gameSceneName: Prototype
+  motorbikeVariants:
+  - {fileID: 11400000, guid: 700d345739999430086d7bb02eedd7f1, type: 2}
+  - {fileID: 11400000, guid: fea68631c10154dcc85457b847d6930b, type: 2}
+  groundGenerationVariants:
+  - {fileID: 11400000, guid: 13263c7472e2d4183a47fe9b104d5009, type: 2}
+  - {fileID: 11400000, guid: 92739febd0a114c28a57476990b9b0b3, type: 2}
+  inputVariants:
+  - {fileID: 11400000, guid: f0622b6f865d44938adc06743751c6dc, type: 2}
+  - {fileID: 11400000, guid: 0c1664e1b67794cf1aa1b4021f1e0c6a, type: 2}
+  cameraFollow: {fileID: 440927222747112264, guid: 24defffe279404b61a1348404efb3ad2, type: 3}

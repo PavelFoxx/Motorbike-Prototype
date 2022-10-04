@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9218a6448af140eea01c74a951e4c46, type: 3}
+  m_Name: Motorbike Basic SO
+  m_EditorClassIdentifier: 
+  title: Motorbike Basic
+  baseMotorbike: {fileID: 8601155506770094835, guid: 986e3f1b066e04767a0ec496ddb830fd, type: 3}
+  engineData:
+    engineSpeed: 2000
+    engineMaxTorque: 40
+    rotateTorque: 3
+    wheelMaterial: {fileID: 6200000, guid: 1e96372d1a0ff430791dd25d22cb91fb, type: 2}
