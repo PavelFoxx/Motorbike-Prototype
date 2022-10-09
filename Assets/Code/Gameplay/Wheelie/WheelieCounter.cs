@@ -1,10 +1,11 @@
 using System;
+using Code.Gameplay.Wheelie.Interfaces;
 using Code.Vehicle;
 using UnityEngine;
 
 namespace Code.Gameplay.Wheelie
 {
-    public class WheelieCounter : MonoBehaviour
+    public class WheelieCounter : MonoBehaviour, IWheelieCounter
     {
         [SerializeField] private WheelGroundCheck frontWheel;
         [SerializeField] private WheelGroundCheck rearWheel;

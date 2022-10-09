@@ -1,28 +1,52 @@
-using System;
+using Code.Vehicle.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Vehicle.Input
 {
     public class KeysInput : MonoBehaviour, IPlayerInput
     {
-        public event Action OnMovePressed;
-        public event Action OnMoveReleased;
-        public event Action OnBreakPressed;
-        public event Action OnBreakReleased;
+        private IEngineControl _engineControl;
 
+        [Inject]
+        private void Construct(IEngineControl engineControl)
+        {
+            _engineControl = engineControl;
+        }
+        
         private void Update()
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.RightArrow))
-                OnMovePressed?.Invoke();
+                OnMovePressed();
 
             if (UnityEngine.Input.GetKeyUp(KeyCode.RightArrow))
-                OnMoveReleased?.Invoke();
+                OnMoveReleased();
             
             if (UnityEngine.Input.GetKeyDown(KeyCode.LeftArrow))
-                OnBreakPressed?.Invoke();
+                OnBreakPressed();
 
             if (UnityEngine.Input.GetKeyUp(KeyCode.LeftArrow))
-                OnBreakReleased?.Invoke();
+                OnBreakReleased();
+        }
+
+        public void OnMovePressed()
+        {
+            _engineControl.OnMovePressed();
+        }
+
+        public void OnMoveReleased()
+        {
+            _engineControl.OnMoveReleased();
+        }
+
+        public void OnBreakPressed()
+        {
+            _engineControl.OnBreakPressed();
+        }
+
+        public void OnBreakReleased()
+        {
+            _engineControl.OnBreakReleased();
         }
     }
 }

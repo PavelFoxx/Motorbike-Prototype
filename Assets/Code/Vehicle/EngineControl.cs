@@ -1,13 +1,13 @@
-using System;
-using Code.Vehicle.Input;
+using Code.Common.Interfaces;
+using Code.Vehicle.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Vehicle
 {
-    public class EngineControl : MonoBehaviour
+    public class EngineControl : MonoBehaviour, IEngineControl
     {
         private EngineDataStruct _engineData;
-        private IPlayerInput _input;
         
         [SerializeField] private Rigidbody2D rearWheelRb;
         [SerializeField] private Rigidbody2D frontWheelRb;
@@ -16,30 +16,17 @@ namespace Code.Vehicle
 
         private bool _isMovePressed;
         private bool _isBreakPressed;
-
-        private bool _isSubscribed = false;
         
-        public void Construct(EngineDataStruct engineData, IPlayerInput input)
+        [Inject]
+        public void Construct(IGameTypeSetup gameTypeSetup)
         {
-            _engineData = engineData;
-            rearWheelRb.sharedMaterial = engineData.wheelMaterial;
-            frontWheelRb.sharedMaterial = engineData.wheelMaterial;
-            _input = input;
-
-            Subscribe();
+            _engineData = gameTypeSetup.CurrentMotorbike.EngineData;
+            rearWheelRb.sharedMaterial = _engineData.wheelMaterial;
+            frontWheelRb.sharedMaterial = _engineData.wheelMaterial;
         }
 
-        private void Subscribe()
-        {
-            _input.OnMovePressed += OnMovePressed;
-            _input.OnMoveReleased += OnMoveReleased;
-            _input.OnBreakPressed += OnBreakPressed;
-            _input.OnBreakReleased += OnBreakReleased;
 
-            _isSubscribed = true;
-        }
-
-        private void OnMovePressed()
+        public void OnMovePressed()
         {
             if (!_isBreakPressed)
                 RunMotor();
@@ -49,7 +36,7 @@ namespace Code.Vehicle
             _isMovePressed = true;
         }
 
-        private void OnMoveReleased()
+        public void OnMoveReleased()
         {
             if(_isBreakPressed)
                 RunBreaks();
@@ -59,13 +46,13 @@ namespace Code.Vehicle
             _isMovePressed = false;
         }
 
-        private void OnBreakPressed()
+        public void OnBreakPressed()
         {
             RunBreaks();
             _isBreakPressed = true;
         }
 
-        private void OnBreakReleased()
+        public void OnBreakReleased()
         {
             if(_isMovePressed)
                 RunMotor();
@@ -108,22 +95,6 @@ namespace Code.Vehicle
                 bodyRb.AddTorque(-_engineData.rotateTorque);
             else if (_isMovePressed)
                 bodyRb.AddTorque(_engineData.rotateTorque);
-        }
-
-        private void OnDestroy()
-        {
-            Unsubscribe();
-        }
-
-        private void Unsubscribe()
-        {
-            if (_isSubscribed)
-            {
-                _input.OnMovePressed -= OnMovePressed;
-                _input.OnMoveReleased -= OnMoveReleased;
-                _input.OnBreakPressed -= OnBreakPressed;
-                _input.OnBreakReleased -= OnBreakReleased;
-            }
         }
     }
 

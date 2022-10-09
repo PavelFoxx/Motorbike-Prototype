@@ -1,16 +1,19 @@
 using System;
+using Code.Gameplay.GameOver.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Gameplay.GameOver
 {
     public class EndLevelView : MonoBehaviour
     {
-        private EndLevelTrigger _endLevelTrigger;
+        private IEndLevelTrigger _endLevelTrigger;
         
         [SerializeField] private Animator fadeAnimator;
         [SerializeField] private string animatorTriggerName = "Fade";
         
-        public void Construct(EndLevelTrigger endLevelTrigger)
+        [Inject]
+        private void Construct(IEndLevelTrigger endLevelTrigger)
         {
             _endLevelTrigger = endLevelTrigger;
             Subscribe();

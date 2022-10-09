@@ -1,22 +1,27 @@
+using Code.Common.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Code.Menu
 {
     public class ExitToMenuButton : MonoBehaviour
     {
+        private ISceneLoader _sceneLoader;
+        
         [SerializeField] private Button backBtn;
-        [SerializeField] private string menuSceneName = "Menu";
- 
-        private void Awake()
+
+        [Inject]
+        private void Construct(ISceneLoader sceneLoader)
         {
+            _sceneLoader = sceneLoader;
             backBtn.onClick.AddListener(OpenMenu);
         }
 
         private void OpenMenu()
         {
-            SceneManager.LoadScene(menuSceneName);
+            _sceneLoader.LoadMenu();
         }
 
         private void OnDestroy()

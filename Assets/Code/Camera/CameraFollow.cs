@@ -1,14 +1,22 @@
-using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Zenject;
 
-namespace Code
+namespace Code.Camera
 {
-    public class CameraFollow : MonoBehaviour
+    public class CameraFollow : MonoBehaviour, ICameraFollow
     {
         private Transform _transform;
-        [SerializeField] private Transform target;
-        [SerializeField] private Vector3 offest;
+        private ITarget _target;
+        
+        [SerializeField] private Vector3 offset;
 
+        [Inject]
+        private void Construct(ITarget target)
+        {
+            _target = target;
+        }
+        
         private void Awake()
         {
             _transform = transform;
@@ -17,13 +25,8 @@ namespace Code
         private void FixedUpdate()
         {
             var position = transform.position;
-            var position1 = target.position;
-            _transform.position = new Vector3(position1.x, position1.y, position.z) + offest;
-        }
-
-        public void SetupTarget(Transform newTarget)
-        {
-            target = newTarget;
+            var position1 = _target.Position;
+            _transform.position = new Vector3(position1.x, position1.y, position.z) + offset;
         }
     }
 }

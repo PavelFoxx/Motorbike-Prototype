@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 851663117212200038}
   - component: {fileID: 1233611731495556108}
   - component: {fileID: 8134482538855707043}
+  - component: {fileID: 7784751433504801712}
   m_Layer: 6
   m_Name: Bike
   m_TagString: Untagged
@@ -674,6 +675,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToReload: 0.5
+--- !u!114 &7784751433504801712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189784005179718317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a3f76849b5462b8c6a80a9199360ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5325779068544407279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1093,7 @@ MonoBehaviour:
   distanceTraveled: {fileID: 8601155506770094832}
   engineControl: {fileID: 6872079067554861840}
   endLevelTrigger: {fileID: 8134482538855707043}
-  baseBody: {fileID: 4953000900647158044}
+  cameraTarget: {fileID: 7784751433504801712}
 --- !u!114 &6872079067554861840
 MonoBehaviour:
   m_ObjectHideFlags: 0

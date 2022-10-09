@@ -4,10 +4,12 @@ namespace Code.Vehicle.Input
 {
     public interface IPlayerInput
     {
-        public event Action OnMovePressed;
-        public event Action OnMoveReleased;
-        
-        public event Action OnBreakPressed;
-        public event Action OnBreakReleased;
+        void OnMovePressed();
+
+        void OnMoveReleased();
+
+        void OnBreakPressed();
+
+        void OnBreakReleased();
     }
 }

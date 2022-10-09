@@ -1,11 +1,13 @@
+using Code.Gameplay.Wheelie.Interfaces;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Gameplay.Wheelie
 {
     public class WheelieView : MonoBehaviour
     {
-        private WheelieCounter _wheelieCounter;
+        private IWheelieCounter _wheelieCounter;
 
         [SerializeField] private GameObject wheelieSignObject;
         [SerializeField] private TMP_Text wheelieTimerText;
@@ -14,7 +16,8 @@ namespace Code.Gameplay.Wheelie
         
         private bool _displayTimer;
         
-        public void Construct(WheelieCounter wheelieCounter)
+        [Inject]
+        private void Construct(IWheelieCounter wheelieCounter)
         {
             _wheelieCounter = wheelieCounter;
         }

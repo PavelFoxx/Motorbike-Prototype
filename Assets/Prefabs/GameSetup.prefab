@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645d6a4d661b14420935ed4e8f4bc476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: Menu
-  gameSceneName: Prototype
   motorbikeVariants:
   - {fileID: 11400000, guid: 700d345739999430086d7bb02eedd7f1, type: 2}
   - {fileID: 11400000, guid: fea68631c10154dcc85457b847d6930b, type: 2}
@@ -55,4 +53,4 @@ MonoBehaviour:
   inputVariants:
   - {fileID: 11400000, guid: f0622b6f865d44938adc06743751c6dc, type: 2}
   - {fileID: 11400000, guid: 0c1664e1b67794cf1aa1b4021f1e0c6a, type: 2}
-  cameraFollow: {fileID: 440927222747112264, guid: 24defffe279404b61a1348404efb3ad2, type: 3}
+  cameraFollow: {fileID: 440927222747112373, guid: 24defffe279404b61a1348404efb3ad2, type: 3}

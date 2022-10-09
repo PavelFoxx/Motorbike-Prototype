@@ -1,20 +1,25 @@
+using Code.Gameplay.Distance.Interfaces;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Gameplay.Distance
 {
     public class DistanceView : MonoBehaviour
     {
-        private DistanceTraveled _distanceTraveled;
+        private IDistanceTraveled _distanceTraveled;
         [SerializeField] private TMP_Text distanceText;
         
-        public void Construct(DistanceTraveled distanceTraveled)
+        [Inject]
+        private void Construct(IDistanceTraveled distanceTraveled)
         {
             _distanceTraveled = distanceTraveled;
+            _distanceTraveled.OnDistanceChanged += DistanceChanged;
         }
-        private void Update()
+
+        private void DistanceChanged(int distance)
         {
-            distanceText.text = $"{_distanceTraveled.Distance.ToString("0")}";
+            distanceText.text = distance.ToString();
         }
     }
 }
