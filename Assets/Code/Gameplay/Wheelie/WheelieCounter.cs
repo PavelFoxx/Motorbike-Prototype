@@ -1,6 +1,6 @@
-using System;
 using Code.Gameplay.Wheelie.Interfaces;
 using Code.Vehicle;
+using UniRx;
 using UnityEngine;
 
 namespace Code.Gameplay.Wheelie
@@ -10,31 +10,36 @@ namespace Code.Gameplay.Wheelie
         [SerializeField] private WheelGroundCheck frontWheel;
         [SerializeField] private WheelGroundCheck rearWheel;
         
-        public bool IsWheelie { get; private set; }
-        public float WheelieTimer => _wheelieTimer;
-        private float _wheelieTimer;
-        
-        public event Action OnBeginWheelie = delegate { };
-        public event Action OnEndWheelie = delegate { };
-        
+        public ReactiveProperty<bool> IsWheelie { get; private set; }
+        public ReactiveProperty<float> WheelieTimer { get; private set; }
+
+        private void Awake()
+        {
+            Construct();
+        }
+
+        private void Construct()
+        {
+            WheelieTimer = new ReactiveProperty<float>();
+            IsWheelie = new ReactiveProperty<bool>();
+        }
+
         private void Update()
         {
             if (!frontWheel.IsGrounded && rearWheel.IsGrounded)
             {
-                _wheelieTimer += Time.deltaTime;
-                if (!IsWheelie)
+                WheelieTimer.Value += Time.deltaTime;
+                if (!IsWheelie.Value && WheelieTimer.Value > 0.5f)
                 {
-                    IsWheelie = true;
-                    OnBeginWheelie?.Invoke();
+                    IsWheelie.Value = true;
                 }
             }
             else
             {
-                _wheelieTimer = 0;
-                if (IsWheelie)
+                WheelieTimer.Value = 0;
+                if (IsWheelie.Value)
                 {
-                    IsWheelie = false;
-                    OnEndWheelie?.Invoke();
+                    IsWheelie.Value = false;
                 }
             }
         }

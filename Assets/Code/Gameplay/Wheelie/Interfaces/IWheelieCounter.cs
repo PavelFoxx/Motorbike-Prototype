@@ -1,14 +1,12 @@
 using System;
 using System.Runtime.InteropServices;
+using UniRx;
 
 namespace Code.Gameplay.Wheelie.Interfaces
 {
     public interface IWheelieCounter
     {
-        public bool IsWheelie { get; }
-        public float WheelieTimer { get; }
-
-        public event Action OnBeginWheelie;
-        public event Action OnEndWheelie;
+        public ReactiveProperty<bool> IsWheelie { get; }
+        public ReactiveProperty<float> WheelieTimer { get; }
     }
 }

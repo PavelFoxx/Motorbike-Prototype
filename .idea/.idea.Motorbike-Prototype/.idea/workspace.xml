@@ -9,10 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Code/Common/ProjectInstaller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Common/GameSceneInstaller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/be/4dd1d021/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2FqdOEnJUPkRITSVUX3gG9XmH0s" />
@@ -57,7 +54,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665223514787</updated>
-      <workItem from="1665223520002" duration="13702000" />
+      <workItem from="1665223520002" duration="13745000" />
+      <workItem from="1665491696343" duration="198000" />
+      <workItem from="1666253645467" duration="1989000" />
     </task>
     <servers />
   </component>

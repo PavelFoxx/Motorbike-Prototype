@@ -1,10 +1,10 @@
 using System;
+using UniRx;
 
 namespace Code.Gameplay.Distance.Interfaces
 {
     public interface IDistanceTraveled
     {
-        public int Distance { get; }
-        public event Action<int> OnDistanceChanged;
+        public ReactiveProperty<int> Distance { get; }
     }
 }
